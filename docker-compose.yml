@@ -1,12 +1,20 @@
 version: "3.3"
 
 services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
   documize:
     image: quay.io/drpdishant/documize
     depends_on:
      - mariadb
     ports:
      - "5001:5001"
+    environment:
+     - VIRTUAL_HOST=documize.192.168.0.106.nip.io
     #volumes:
     # - "config.toml:/etc/documize/config.toml"
   mariadb:
@@ -18,7 +26,5 @@ services:
      - MYSQL_PASSWORD=documize
      - MYSQL_INITDB_SKIP_TZINFO=1
     volumes:
-      - database:/var/lib/mysql
+      - ./tmp/database:/var/lib/mysql
     command: --character-set-server=utf8mb4
-volumes:
-  database:
