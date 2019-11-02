@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  documize:
+    build: .docker
+    depends_on:
+     - mariadb
+    ports:
+     - "5001:5001"
+    #volumes:
+    # - "config.toml:/etc/documize/config.toml"
+  mariadb:
+    image: mariadb:10.3
+    environment:
+     - MYSQL_ROOT_PASSWORD=secret
+     - MYSQL_DATABASE=documize
+     - MYSQL_USER=documize
+     - MYSQL_PASSWORD=documize
+     - MYSQL_INITDB_SKIP_TZINFO=1
+    volumes:
+      - database:/var/lib/mysql
+    command: --character-set-server=utf8mb4
+volumes:
+  database:
