@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   documize:
-    build: .docker
+    image: quay.io/drpdishant/documize
     depends_on:
      - mariadb
     ports:
