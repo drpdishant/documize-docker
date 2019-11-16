@@ -1,20 +1,12 @@
 version: "3.3"
-
 services:
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    ports:
-      - "80:80"
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
   documize:
-    image: quay.io/drpdishant/documize
+    image: quay.io/drpdishant/documize:3.4.3
     depends_on:
      - mariadb
     ports:
      - "5001:5001"
     environment:
-     - VIRTUAL_HOST=documize.192.168.0.106.nip.io
     #volumes:
     # - "config.toml:/etc/documize/config.toml"
   mariadb:
