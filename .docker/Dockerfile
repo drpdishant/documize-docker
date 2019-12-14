@@ -12,3 +12,4 @@ RUN apk add curl && curl -Lo ${documize_exec} https://github.com/documize/commun
 COPY config.toml /config.toml
 WORKDIR /
 CMD documize config.toml
+HEALTHCHECK CMD curl --fail http://localhost:5001/ || exit 1
