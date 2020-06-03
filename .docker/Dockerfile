@@ -5,7 +5,7 @@ LABEL image.maintainer="Dishant Pandya"
 LABEL maintainer.email="drpdishant@gmail.com"
 LABEL version="1.0"
 LABEL description="Team-driven content authoring & automation for secure internal and external documentation."
-ENV documize_ver=v3.7.0
+ENV documize_ver=v3.8.0
 ENV documize_exec=/usr/local/bin/documize
 RUN apk add curl && curl -Lo ${documize_exec} https://github.com/documize/community/releases/download/${documize_ver}/documize-community-linux-amd64 && \
     chmod +x ${documize_exec}
