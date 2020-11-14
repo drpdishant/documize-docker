@@ -7,7 +7,7 @@ LABEL version="1.0"
 LABEL description="Team-driven content authoring & automation for secure internal and external documentation."
 ENV documize_ver=v3.8.1
 ENV documize_exec=/usr/local/bin/documize
-RUN apk add curl && curl -Lo ${documize_exec} https://github.com/documize/community/releases/download/${documize_ver}/documize-community-linux-amd64 && \
+RUN apk add curl && curl -Lo ${documize_exec} https://documize.s3-eu-west-1.amazonaws.com/downloads/documize-community-linux-amd64 && \
     chmod +x ${documize_exec}
 COPY config.toml /config.toml
 WORKDIR /
