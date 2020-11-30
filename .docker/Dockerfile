@@ -1,4 +1,5 @@
-FROM alpine
+FROM scratch
+ADD alpine-minirootfs-3.12.1-x86_64.tar.gz /
 LABEL project.name="Documize"
 LABEL project.url="documize.com"
 LABEL image.maintainer="Dishant Pandya"
