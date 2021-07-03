@@ -1,5 +1,5 @@
 FROM scratch
-ADD https://dl-cdn.alpinelinux.org/alpine/v3.13/releases/x86_64/alpine-minirootfs-3.13.5-x86_64.tar.gz /
+ADD alpine-minirootfs-3.14.0-x86_64.tar.gz /
 LABEL project.name="Documize"
 LABEL project.url="documize.com"
 LABEL image.maintainer="Dishant Pandya"
